@@ -26,4 +26,10 @@ public class PostController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    @DeleteMapping("/post/{id}")
+    public ResponseEntity<?> deletePost(@PathVariable String id){
+        postRepo.deleteById(id);
+        return new ResponseEntity<>(postRepo.findAll(),HttpStatus.OK);
+    }
+
 }
