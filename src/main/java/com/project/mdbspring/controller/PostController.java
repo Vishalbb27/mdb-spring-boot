@@ -32,4 +32,9 @@ public class PostController {
         return new ResponseEntity<>(postRepo.findAll(),HttpStatus.OK);
     }
 
+    @GetMapping("post/{id}")
+    public ResponseEntity<?> getPost(@PathVariable String id){
+        return new ResponseEntity<>(postRepo.findById(id),HttpStatus.OK);
+    }
+
 }
